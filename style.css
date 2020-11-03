@@ -80,7 +80,7 @@ li {
     background-size: cover;
 }
 
-.front15{
+.front15 {
     position: absolute;
     bottom: 0;
     left: 0;
@@ -88,6 +88,7 @@ li {
     height: 3vw;
     background-image: url(design/game-screen-front1.svg);
     background-size: cover;
+    z-index: 5;
 }
 
 .front2 {
@@ -98,6 +99,7 @@ li {
     background-size: cover;
     left: 5vw;
     bottom: 1vw;
+        z-index: 4;
 }
 
 .front3 {
@@ -108,16 +110,31 @@ li {
     background-size: cover;
     left: 17.5vw;
     bottom: 7.5vw;
+    z-index: 2;
 }
 
-#trump1-sprite {
+#trump-sprite {
+    /*
     background-image: url(design/trump-neutral.svg);
     background-size: cover;
     position: absolute;
-
+*/
 }
 
-#trump1-container {
+.trump1-sprite {
+    background-image: url(design/trump-neutral.svg);
+    background-size: cover;
+    position: absolute;
+}
+
+.trump2-sprite {
+    background-image: url(design/trump-shocked.svg);
+    background-size: cover;
+    position: absolute;
+}
+
+
+#trump-container {
     position: absolute;
     overflow: hidden;
     width: 12.5vw;
@@ -166,18 +183,39 @@ li {
 }
 
 .pos1 {
-    left: 6.5vw;
-    bottom: 6.5vw;
+    left: 17vw;
+    bottom: 15.2vw;
+    z-index: 1;
 }
 
 .pos2 {
-    left: 40vw;
-    bottom: 7vw;
+    left: 47.3vw;
+    bottom: 14.3vw;
+    z-index: 1;
 }
 
 .pos3 {
-    left: 47.3vw;
-    bottom: 14.3vw;
+    left: 6.5vw;
+    bottom: 6.5vw;
+    z-index: 3;
+}
+
+.pos4 {
+    left: 22.5vw;
+    bottom: 6.4vw;
+    z-index: 3;
+}
+
+.pos5 {
+    left: 40vw;
+    bottom: 7vw;
+    z-index: 3;
+}
+
+.pos6 {
+    left: 55.7vw;
+    bottom: 6.5vw;
+    z-index: 3;
 }
 
 .timer1 {
@@ -258,6 +296,7 @@ li {
     background-size: cover;
     width: 2.5vw;
     height: 2.5vw;
+    z-index: 6;
 }
 
 .pause {
@@ -266,6 +305,7 @@ li {
     background-size: cover;
     width: 2.5vw;
     height: 2.5vw;
+    z-index: 6;
 }
 
 .spos1 {
@@ -332,6 +372,37 @@ a:active {
 .stop {
     animation-play-state: paused;
 }
+
+.hidden {
+    display: none;
+}
+
+#tomatothrow {
+    background-image: url(design/tomato.svg);
+    width: 5vw;
+    height: 5vw;
+    background-size: cover;
+    left: 20.5vw;
+    bottom: 17.2vw;
+    position: absolute;
+    z-index: 2;
+}
+
+.zoom_out {
+    animation-name: zoom_out;
+    animation-duration: 1s;
+}
+
+@keyframes zoom_out {
+    0% {
+        transform: scale(3);
+    }
+    100% {
+        transform: scale(0.7)
+    }
+}
+
+/*Media querie*/
 
 @media only screen and (max-width: 1200px) {
     main {
