@@ -1,0 +1,353 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins&family=Ubuntu&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Patrick+Hand&display=swap');
+
+h2 {
+    font-family: 'Poppins', sans-serif;
+}
+
+p {
+    font-family: 'Poppins', sans-serif;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+}
+
+main {
+    display: grid;
+    grid-template-areas: "game info";
+    grid-gap: 1vw;
+    grid-template-columns: 0.75fr 1fr;
+}
+
+section {
+    position: relative;
+    margin-left: 25px;
+    grid-area: game;
+    width: 75vw;
+    height: 45vw;
+    background-image: url(design/game-screen.svg);
+    background-position: center;
+    background-size: cover;
+    border: 4px #28306E solid;
+    overflow: hidden;
+}
+
+aside {
+    grid-area: info;
+    margin-right: 1vw;
+    margin-left: 1vw;
+}
+
+#tomato {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 50%;
+}
+
+footer {
+    /*    height: 80px;*/
+    width: 100vw;
+    position: relative;
+    bottom: 0;
+    margin-top: 1vw;
+}
+
+ul {
+    width: 75vw;
+    margin: 10px;
+    padding: 10px;
+    display: flex;
+    justify-content: flex-start;
+    list-style: none;
+}
+
+li {
+    margin-right: 25px;
+}
+
+/*Game Screen starts here*/
+
+.front1 {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 75vw;
+    height: 7vw;
+    background-image: url(design/game-screen-front.svg);
+    background-size: cover;
+}
+
+.front15{
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 75vw;
+    height: 3vw;
+    background-image: url(design/game-screen-front1.svg);
+    background-size: cover;
+}
+
+.front2 {
+    position: absolute;
+    width: 65vw;
+    height: 10vw;
+    background-image: url(design/game-screen-front2.svg);
+    background-size: cover;
+    left: 5vw;
+    bottom: 1vw;
+}
+
+.front3 {
+    position: absolute;
+    width: 41vw;
+    height: 11vw;
+    background-image: url(design/game-screen-front3.svg);
+    background-size: cover;
+    left: 17.5vw;
+    bottom: 7.5vw;
+}
+
+#trump1-sprite {
+    background-image: url(design/trump-neutral.svg);
+    background-size: cover;
+    position: absolute;
+
+}
+
+#trump1-container {
+    position: absolute;
+    overflow: hidden;
+    width: 12.5vw;
+    height: 11.25vw;
+}
+
+#woman1-sprite {
+    background-image: url(design/woman-neutral.svg);
+    background-size: cover;
+    position: absolute;
+}
+
+#woman1-container {
+    overflow: hidden;
+    position: absolute;
+    width: 12.5vw;
+    height: 11.25vw;
+}
+
+#man1-sprite {
+    background-image: url(design/man-neutral.svg);
+    background-size: cover;
+    position: absolute;
+}
+
+#man1-container {
+    position: absolute;
+    width: 12.5vw;
+    height: 11.25vw;
+    overflow: hidden;
+}
+
+.size1 {
+    width: 15vw;
+    height: 13.5vw;
+}
+
+.size2 {
+    width: 12.5vw;
+    height: 11.25vw;
+}
+
+.size3 {
+    width: 10vw;
+    height: 9vw;
+}
+
+.pos1 {
+    left: 6.5vw;
+    bottom: 6.5vw;
+}
+
+.pos2 {
+    left: 40vw;
+    bottom: 7vw;
+}
+
+.pos3 {
+    left: 47.3vw;
+    bottom: 14.3vw;
+}
+
+.timer1 {
+    background-image: url(design/timer-background.svg);
+    background-size: cover;
+    position: absolute;
+    width: 30vw;
+    height: 2.5vw;
+    left: 0.6vw;
+    top: 1vw;
+}
+
+.timer2 {
+    background-image: url(design/timer-liquid.svg);
+    background-size: cover;
+    position: absolute;
+    width: 30vw;
+    height: 2.5vw;
+    left: 0.6vw;
+    top: 1vw;
+}
+
+.points {
+    position: absolute;
+    background-image: url(design/point-counter.svg);
+    background-size: cover;
+    width: 25vw;
+    height: 2.5vw;
+    top: 3.8vw;
+    left: 1vw;
+}
+
+.pointnumber {
+    position: absolute;
+    font-size: 2.5vw;
+    top: 3.5vw;
+    left: 23vw;
+    color: white;
+    font-family: 'Patrick Hand', cursive;
+
+    transform: rotate(7deg)
+}
+
+.heart1 {
+    position: absolute;
+    background-image: url(design/heart.svg);
+    background-size: cover;
+    width: 2.5vw;
+    height: 2.5vw;
+}
+
+.heart2 {
+    position: absolute;
+    background-image: url(design/heart-broken.svg);
+    background-size: cover;
+    width: 2.5vw;
+    height: 2.5vw;
+}
+
+.hpos1 {
+    top: 0.9vw;
+    right: 1vw;
+}
+
+.hpos2 {
+    top: 0.9vw;
+    right: 4vw;
+}
+
+.hpos3 {
+    top: 0.9vw;
+    right: 7vw;
+}
+
+.soundon {
+    position: absolute;
+    background-image: url(design/button-sound-on.svg);
+    background-size: cover;
+    width: 2.5vw;
+    height: 2.5vw;
+}
+
+.pause {
+    position: absolute;
+    background-image: url(design/button-pause.svg);
+    background-size: cover;
+    width: 2.5vw;
+    height: 2.5vw;
+}
+
+.spos1 {
+    right: 1vw;
+    bottom: 1vw;
+}
+
+.spos2 {
+    right: 4vw;
+    bottom: 1vw;
+}
+
+#globalNav {
+    font-family: 'Poppins', sans-serif;
+    margin-left: 5px;
+}
+
+#someNav {
+    font-family: 'Ubuntu', sans-serif;
+    margin-left: 5px;
+}
+
+nav a {
+    text-decoration: none;
+}
+
+a:link {
+    color: #A31E16
+}
+
+a:visited {
+    color: #28306E
+}
+
+a:hover {
+    color: #28306E
+}
+
+a:active {
+    color: #28306E
+}
+
+#credit {
+    font-size: 0.8em;
+}
+
+.upDown {
+    animation-name: upDown;
+    animation-duration: 4s;
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+}
+
+@keyframes upDown {
+    from {
+        transform: translateY(15vw)
+    }
+
+    to {
+        transform: translateY(0vw)
+    }
+}
+
+.stop {
+    animation-play-state: paused;
+}
+
+@media only screen and (max-width: 1200px) {
+    main {
+        grid-template-areas: "game"
+            "info";
+    }
+
+}
+
+/*
+    section {
+        width: 90vw;
+        height: 54vw;
+    }
+*/
+
+aside {
+    margin-left: 25px;
+}
