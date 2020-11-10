@@ -13,46 +13,76 @@
         <nav id="globalNav">
             <ul>
                 <li><a href="#">Home</a></li>
-<!--                <li><a href="#">Learn</a></li>-->
                 <li><a href="/trump-tweets/assets.html">Game Assets</a></li>
             </ul>
         </nav>
     </header>
     <main>
         <section>
-            <div id="startscreen"></div>
-            <div id="instructionsscreen"></div>
-            <div id="gamesscreen">
+            <div id="startscreen"  class="hidden">
+                <div id="startbackground"></div>
+                <div id="startbutton"></div>
+                <div id="howtoplaybutton"></div>
+                <div id="instructionsscreen" class="hidden"></div>
+                <div id="closeinstructions" class="hidden"></div>
+            </div>
+            <div id="gamescreen" >
 
-                <div id="man1-container" class="pos4">
-                    <div id="man1-sprite" class="size2 upDown"></div>
+                <div id="man1-container">
+                    <div id="man1-sprite" class="size2 hidden"></div>
                 </div>
                 <div class="front3"></div>
                 <div id="trump-container">
                     <div id="trump-sprite" class="size2"></div>
                 </div>
-                <div id="woman1-container" class="pos5">
-                    <div id="woman1-sprite" class="size2 upDown"></div>
+                <div id="woman-container">
+                    <div id="woman-sprite" class="size2"></div>
                 </div>
 
-                <div id="tomatothrow"></div>
+                <div id="tpos1s"></div>
+                <div id="tpos1"></div>
+
+                <div id="tpos2s"></div>
+                <div id="tpos2"></div>
+
+                <div id="tpos3s"></div>
+                <div id="tpos3"></div>
+
+                <div id="tpos4s"></div>
+                <div id="tpos4"></div>
+
+                <div id="tpos5s"></div>
+                <div id="tpos5"></div>
+
+                <div id="tpos6s"></div>
+                <div id="tpos6"></div>
 
                 <div class="front2"></div>
                 <div class="front15"></div>
                 <div class="front1"></div>
                 <div class="timer1"></div>
-                <div class="timer2"></div>
+                <div id="timer2" class="countdown"></div>
                 <div class="points"></div>
-                <div class="pointnumber">3</div>
-                <div class="heart1 hpos1"></div>
-                <div class="heart1 hpos2"></div>
-                <div class="heart2 hpos3"></div>
+                <div class="pointnumber"><span id="currentScore"></span></div>
+                <div id="h1" class="heart1 hpos1"></div>
+                <div id="h2" class="heart1 hpos2"></div>
+                <div id="h3" class="heart1 hpos3"></div>
                 <div class="soundon spos1"></div>
-                <div class="pause spos2"></div>
+                <div id="pause" class="pause spos2"></div>
             </div>
-            <div id="winscreen"></div>
-            <div id="losescreen"></div>
+
+            <div id="winscreen" class="hidden">
+                <div id="homebutton1"></div>
+                <div id="playagainbutton"></div>
+            </div>
+
+            <div id="losescreen" class="hidden">
+                <div id="homebutton2"></div>
+                <div id="tryagainbutton"></div>
+
+            </div>
         </section>
+
         <aside id="gameinfo">
             <h2>Trump Tweets</h2>
             <p><strong>Your objective:</strong> keep Trump from tweeting for one minute! </p>
@@ -65,13 +95,9 @@
     <footer>
         <nav id="someNav">
             <ul>
-<!--
-                <li><a href="#">Facebook</a></li>
-                <li><a href="#">Instagram</a></li>
--->
                 <li><a href="https://www.linkedin.com/in/rikke-blom-thoegersen/" target="_blank">LinkedIn</a></li>
             </ul>
         </nav>
     </footer>
-<script src="javascript.js"></script>
+    <script src="javascript.js"></script>
 </body></html>

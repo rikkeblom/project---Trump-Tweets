@@ -1,6 +1,10 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins&family=Ubuntu&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Patrick+Hand&display=swap');
 
+h1 {
+    font-family: 'Poppins', sans-serif;
+}
+
 h2 {
     font-family: 'Poppins', sans-serif;
 }
@@ -26,7 +30,7 @@ section {
     margin-left: 25px;
     grid-area: game;
     width: 75vw;
-    height: 45vw;
+    height: 42vw;
     background-image: url(design/game-screen.svg);
     background-position: center;
     background-size: cover;
@@ -68,6 +72,144 @@ li {
     margin-right: 25px;
 }
 
+/* --------  win screen ---------- */
+
+#winscreen {
+    background-image: url(design/win-screen.svg);
+    background-size: cover;
+    height: 42vw;
+    width: 75vw;
+    position: absolute;
+}
+
+#homebutton1 {
+    background-image: url(design/button-tomato-home.svg);
+    background-size: cover;
+    height: 12.5vw;
+    width: 12.5vw;
+    position: absolute;
+    left: 42vw;
+    bottom: 3vw;
+}
+
+#homebutton1:hover{
+    transform: scale(1.1)
+}
+
+#homebutton2 {
+    background-image: url(design/button-tomato-home.svg);
+    background-size: cover;
+    height: 12.5vw;
+    width: 12.5vw;
+    position: absolute;
+    left: 42vw;
+    bottom: 3vw;
+}
+
+#homebutton2:hover{
+    transform: scale(1.1)
+}
+
+#playagainbutton {
+    background-image: url(design/button-tomato-play-again.svg);
+    background-size: cover;
+    height: 12.5vw;
+    width: 12.5vw;
+    position: absolute;
+    left: 56vw;
+    bottom: 3vw;
+}
+
+#playagainbutton:hover{
+    transform: scale(1.1)
+}
+
+/* ------------- lose screen ----------- */
+
+#losescreen {
+    background-image: url(design/fail-screen.svg);
+    background-size: cover;
+    height: 42vw;
+    width: 75vw;
+    position: absolute;
+}
+
+#tryagainbutton {
+    background-image: url(design/button-tomato-try-again.svg);
+    background-size: cover;
+    height: 12.5vw;
+    width: 12.5vw;
+    position: absolute;
+    left: 56vw;
+    bottom: 3vw;
+}
+
+#tryagainbutton:hover{
+    transform: scale(1.1);
+}
+
+/* ----------- start screen ------------ */
+
+#startscreen {
+    background-image: url(design/start-screen.svg);
+    background-position: center;
+    background-size: cover;
+    width: 75vw;
+    height: 42vw;
+}
+
+#startbutton {
+    background-image: url(design/button-start-game.svg);
+    background-size: cover;
+    width: 15vw;
+    height: 5vw;
+    position: absolute;
+    left: 57vw;
+    bottom: 10vw;
+}
+
+#startbutton:hover {
+   transform: scale(1.1);
+}
+
+#howtoplaybutton {
+    background-image: url(design/button-how-to-play.svg);
+    background-size: cover;
+    width: 15vw;
+    height: 5vw;
+    position: absolute;
+    left: 57vw;
+    bottom: 5vw;
+}
+
+#howtoplaybutton:hover {
+   transform: scale(1.1);
+}
+
+#instructionsscreen {
+    background-image: url(design/how-to-play.svg);
+    background-size:cover;
+    width: 39vw;
+    height: 27vw;
+    position: absolute;
+    left: 18vw;
+    bottom: 7.5vw;
+}
+
+#closeinstructions {
+    background-image: url(design/button-exit.svg);
+    background-size: cover;
+    width: 4.5vw;
+    height: 4.5vw;
+    position:absolute;
+    left:51.5vw;
+    bottom: 29vw;
+}
+
+#closeinstructions:hover {
+    transform: scale(1.1);
+}
+
 /*Game Screen starts here*/
 
 .front1 {
@@ -85,7 +227,7 @@ li {
     bottom: 0;
     left: 0;
     width: 75vw;
-    height: 3vw;
+    height: 2vw;
     background-image: url(design/game-screen-front1.svg);
     background-size: cover;
     z-index: 5;
@@ -94,12 +236,12 @@ li {
 .front2 {
     position: absolute;
     width: 65vw;
-    height: 10vw;
+    height: 7.5vw;
     background-image: url(design/game-screen-front2.svg);
     background-size: cover;
     left: 5vw;
-    bottom: 1vw;
-        z-index: 4;
+    bottom: 2vw;
+    z-index: 4;
 }
 
 .front3 {
@@ -111,14 +253,6 @@ li {
     left: 17.5vw;
     bottom: 7.5vw;
     z-index: 2;
-}
-
-#trump-sprite {
-    /*
-    background-image: url(design/trump-neutral.svg);
-    background-size: cover;
-    position: absolute;
-*/
 }
 
 .trump1-sprite {
@@ -133,7 +267,6 @@ li {
     position: absolute;
 }
 
-
 #trump-container {
     position: absolute;
     overflow: hidden;
@@ -141,13 +274,19 @@ li {
     height: 11.25vw;
 }
 
-#woman1-sprite {
+.woman1-sprite{
     background-image: url(design/woman-neutral.svg);
     background-size: cover;
     position: absolute;
 }
 
-#woman1-container {
+.woman2-sprite{
+    background-image: url(design/woman-shocked.svg);
+    background-size: cover;
+    position: absolute;
+}
+
+#woman-container {
     overflow: hidden;
     position: absolute;
     width: 12.5vw;
@@ -189,7 +328,7 @@ li {
 }
 
 .pos2 {
-    left: 47.3vw;
+    left: 46vw;
     bottom: 14.3vw;
     z-index: 1;
 }
@@ -228,14 +367,38 @@ li {
     top: 1vw;
 }
 
-.timer2 {
-    background-image: url(design/timer-liquid.svg);
-    background-size: cover;
+#timer2 {
+    background-color: #36A9E1;
     position: absolute;
-    width: 30vw;
-    height: 2.5vw;
-    left: 0.6vw;
-    top: 1vw;
+    width: 28.1vw;
+    height: 1.5vw;
+    left: 1.5vw;
+    top: 1.4vw;
+}
+
+.countdown{
+    transform: scaleX(0.1);
+    transform-origin: left bottom;
+    animation: squeeze 60s infinite;
+}
+
+@keyframes squeeze {
+    0% {
+        transform: scaleX(1);
+    }
+
+    100% {
+        transform: scaleX(0);
+    }
+}
+
+keyframes countdown{
+    0% {
+        transform: scaleX(1)
+    }
+    100% {
+        transform: scaleX(0)
+    }
 }
 
 .points {
@@ -356,16 +519,20 @@ a:active {
     animation-name: upDown;
     animation-duration: 4s;
     animation-iteration-count: infinite;
-    animation-direction: alternate;
+/*    animation-direction: alternate;*/
 }
 
 @keyframes upDown {
-    from {
+    0% {
         transform: translateY(15vw)
     }
 
-    to {
+    50% {
         transform: translateY(0vw)
+    }
+
+    100% {
+        transform: translateY(15vw)
     }
 }
 
@@ -377,7 +544,7 @@ a:active {
     display: none;
 }
 
-#tomatothrow {
+#tpos1{
     background-image: url(design/tomato.svg);
     width: 5vw;
     height: 5vw;
@@ -385,12 +552,149 @@ a:active {
     left: 20.5vw;
     bottom: 17.2vw;
     position: absolute;
-    z-index: 2;
+    z-index: 7;
+}
+
+#tpos1s {
+    background-image: url(design/splash.svg);
+    width: 7.5vw;
+    height: 7.5vw;
+    background-size: cover;
+    position: absolute;
+    z-index: 7;
+    left: 19.25vw;
+    bottom: 16vw;
+}
+
+#tpos2{
+    background-image: url(design/tomato.svg);
+    width: 5vw;
+    height: 5vw;
+    background-size: cover;
+    left: 50vw;
+    bottom: 17.2vw;
+    position: absolute;
+    z-index: 7;
+}
+
+#tpos2s {
+    background-image: url(design/splash.svg);
+    width: 7.5vw;
+    height: 7.5vw;
+    background-size: cover;
+    position: absolute;
+    z-index: 7;
+    left: 48.5vw;
+    bottom: 16vw;
+}
+
+#tpos3{
+    background-image: url(design/tomato.svg);
+    width: 5vw;
+    height: 5vw;
+    background-size: cover;
+    left: 10vw;
+    bottom: 9.4vw;
+    position: absolute;
+    z-index: 7;
+}
+
+#tpos3s {
+    background-image: url(design/splash.svg);
+    width: 7.5vw;
+    height: 7.5vw;
+    background-size: cover;
+    position: absolute;
+    z-index: 7;
+    left: 8.5vw;
+    bottom: 8vw;
+}
+
+#tpos4{
+    background-image: url(design/tomato.svg);
+    width: 5vw;
+    height: 5vw;
+    background-size: cover;
+    left: 26vw;
+    bottom: 10.4vw;
+    position: absolute;
+    z-index: 7;
+}
+
+#tpos4s {
+    background-image: url(design/splash.svg);
+    width: 7.5vw;
+    height: 7.5vw;
+    background-size: cover;
+    position: absolute;
+    z-index: 7;
+    left: 24.5vw;
+    bottom: 9vw;
+}
+
+#tpos5{
+    background-image: url(design/tomato.svg);
+    width: 5vw;
+    height: 5vw;
+    background-size: cover;
+    left: 43.5vw;
+    bottom: 10.4vw;
+    position: absolute;
+    z-index: 7;
+}
+
+#tpos5s {
+    background-image: url(design/splash.svg);
+    width: 7.5vw;
+    height: 7.5vw;
+    background-size: cover;
+    position: absolute;
+    z-index: 7;
+    left: 42.2vw;
+    bottom: 9vw;
+}
+
+#tpos6{
+    background-image: url(design/tomato.svg);
+    width: 5vw;
+    height: 5vw;
+    background-size: cover;
+    left: 59.5vw;
+    bottom: 9.4vw;
+    position: absolute;
+    z-index: 7;
+}
+
+#tpos6s {
+    background-image: url(design/splash.svg);
+    width: 7.5vw;
+    height: 7.5vw;
+    background-size: cover;
+    position: absolute;
+    z-index: 7;
+    left: 58.2vw;
+    bottom: 8.5vw;
+}
+
+
+.zoom_in {
+    animation-name: zoom_in;
+    animation-duration: 0.2s;
+}
+
+@keyframes zoom_in {
+    0% {
+        transform: scale(0.2);
+    }
+    100% {
+        transform: scale(1)
+    }
 }
 
 .zoom_out {
     animation-name: zoom_out;
-    animation-duration: 1s;
+    animation-duration: 0.7s;
+    animation-timing-function: cubic-bezier(.34,.01,1,1);
 }
 
 @keyframes zoom_out {
@@ -398,7 +702,7 @@ a:active {
         transform: scale(3);
     }
     100% {
-        transform: scale(0.7)
+        transform: scale(1)
     }
 }
 
