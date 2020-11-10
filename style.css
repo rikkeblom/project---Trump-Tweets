@@ -293,13 +293,19 @@ li {
     height: 11.25vw;
 }
 
-#man1-sprite {
+.man1-sprite {
     background-image: url(design/man-neutral.svg);
     background-size: cover;
     position: absolute;
 }
 
-#man1-container {
+.man2-sprite {
+    background-image: url(design/man-shocked.svg);
+    background-size: cover;
+    position: absolute;
+}
+
+#man-container {
     position: absolute;
     width: 12.5vw;
     height: 11.25vw;
@@ -676,7 +682,6 @@ a:active {
     bottom: 8.5vw;
 }
 
-
 .zoom_in {
     animation-name: zoom_in;
     animation-duration: 0.2s;
@@ -715,13 +720,6 @@ a:active {
     }
 
 }
-
-/*
-    section {
-        width: 90vw;
-        height: 54vw;
-    }
-*/
 
 aside {
     margin-left: 25px;

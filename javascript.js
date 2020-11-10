@@ -61,6 +61,13 @@ function start() {
     document.querySelector("#woman-sprite").addEventListener("animationiteration", newPosWoman);
     document.querySelector("#woman-sprite").addEventListener("click", stopWoman);
 
+    document.querySelector("#man-sprite").classList.remove("man2-sprite");
+    document.querySelector("#man-sprite").classList.add("man1-sprite");
+    document.querySelector("#man-sprite").classList.add("upDown");
+    document.querySelector("#man-container").classList.add("pos3");
+    document.querySelector("#man-sprite").addEventListener("animationiteration", newPosMan);
+    document.querySelector("#man-sprite").addEventListener("click", stopMan);
+
     document.querySelector("#pause").addEventListener("click", globalPause);
     showTime();
 
@@ -163,6 +170,33 @@ function newPosWoman() {
     document.querySelector("#woman-sprite").addEventListener("click", stopWoman);
 }
 
+function newPosMan() {
+    console.log("newPosMan()");
+    document.querySelector("#tpos1").classList.add("hidden");
+    document.querySelector("#tpos1s").classList.add("hidden");
+    document.querySelector("#tpos2").classList.add("hidden");
+    document.querySelector("#tpos2s").classList.add("hidden");
+    document.querySelector("#tpos3").classList.add("hidden");
+    document.querySelector("#tpos3s").classList.add("hidden");
+    document.querySelector("#tpos4").classList.add("hidden");
+    document.querySelector("#tpos4s").classList.add("hidden");
+    document.querySelector("#tpos5").classList.add("hidden");
+    document.querySelector("#tpos5s").classList.add("hidden");
+    document.querySelector("#tpos6").classList.add("hidden");
+    document.querySelector("#tpos6s").classList.add("hidden");
+
+    document.querySelector("#man-container").classList.value = "";
+    document.querySelector("#man-container").offsetHeight;
+    document.querySelector("#man-sprite").classList.remove("man2-sprite");
+    document.querySelector("#man-sprite").classList.add("man1-sprite");
+    document.querySelector("#man-sprite").classList.add("upDown");
+    let randPos = Math.floor(Math.random() * 6) + 1;
+    document.querySelector("#man-container").classList.add("pos" + randPos);
+    console.log("pos" + randPos);
+    document.querySelector("#man-sprite").addEventListener("animationiteration", newPosMan);
+    document.querySelector("#man-sprite").addEventListener("click", stopMan);
+}
+
 function stopTrump() {
     console.log("function stopTrump()");
     document.querySelector("#trump-sprite").classList.add("stop");
@@ -188,8 +222,20 @@ function stopWoman() {
     document.querySelector("#t" + p).addEventListener("animationend", splatWoman);
 }
 
+function stopMan() {
+    console.log("function stopMan()");
+    p = this.parentElement.classList;
+    console.log("#pos" + p);
+    this.classList.add("stop");
+    document.querySelector("#t" + p).classList.remove("hidden");
+    document.querySelector("#t" + p).classList.add("zoom_out");
+    this.classList.add("man2-sprite");
+    loseLife();
+    document.querySelector("#t" + p).addEventListener("animationend", splatMan);
+}
+
 function splatTrump() {
-    console.log("function splat()");
+    console.log("function splatTrump()");
     console.log("#t" + p + "s");
     document.querySelector("#t" + p + "s").classList.remove("hidden");
     document.querySelector("#t" + p + "s").classList.add("zoom_in");
@@ -197,10 +243,17 @@ function splatTrump() {
 }
 
 function splatWoman() {
-    console.log("function splat()");
+    console.log("function splatWoman()");
     document.querySelector("#t" + p + "s").classList.remove("hidden");
     document.querySelector("#t" + p + "s").classList.add("zoom_in");
     document.querySelector("#t" + p + "s").addEventListener("animationend", restartWoman);
+}
+
+function splatMan() {
+    console.log("function splatMan()");
+    document.querySelector("#t" + p + "s").classList.remove("hidden");
+    document.querySelector("#t" + p + "s").classList.add("zoom_in");
+    document.querySelector("#t" + p + "s").addEventListener("animationend", restartMan);
 }
 
 function restartTrump() {
@@ -219,6 +272,15 @@ function restartWoman() {
     document.querySelector("#woman-container").classList.value = "";
     document.querySelector("#woman-container").offsetHeight;
     newPosWoman();
+}
+
+function restartMan() {
+    console.log("function restartMan()");
+    document.querySelector("#man-sprite").classList.remove("stop");
+    document.querySelector("#man-sprite").classList.remove("upDown");
+    document.querySelector("#man-container").classList.value = "";
+    document.querySelector("#man-container").offsetHeight;
+    newPosMan();
 }
 
 function globalPause() {
