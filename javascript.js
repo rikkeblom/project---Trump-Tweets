@@ -3,6 +3,7 @@ let score = 0;
 let lives = 3;
 let p;
 let timeLeft = 60;
+let gameIsPaused = false;
 
 function frontPage() {
     document.querySelector("#gamescreen").classList.add("hidden");
@@ -31,6 +32,7 @@ function start() {
     timeLeft = 60;
     score = 0;
     let p;
+    gameIsPaused = false;
     document.querySelector("#currentScore").textContent = score;
 
     document.querySelector("#tpos1").classList.add("hidden");
@@ -68,7 +70,7 @@ function start() {
     document.querySelector("#man-sprite").addEventListener("animationiteration", newPosMan);
     document.querySelector("#man-sprite").addEventListener("click", stopMan);
 
-    document.querySelector("#pause").addEventListener("click", globalPause);
+    document.querySelector("#pause").addEventListener("click", pauseGame);
     showTime();
 
     //    document.querySelector("#h1").addEventListener("click", gainLife);
@@ -85,12 +87,14 @@ function showTime() {
 }
 
 function startTimer() {
-    if (timeLeft == 0) {
-        gameOver();
-    } else {
-        setTimeout(showTime, 1000);
+    if (gameIsPaused == false) {
+        if (timeLeft == 0) {
+            gameOver();
+        } else {
+            setTimeout(showTime, 1000);
+        }
+        console.log("time left: " + timeLeft)
     }
-    console.log("time left: " +timeLeft)
 }
 
 function gainLife() {
@@ -102,16 +106,16 @@ function gainLife() {
 
 function loseLife() {
     if (lives > 1) {
-    document.querySelector("#h" + lives).classList.remove("heart1");
-    document.querySelector("#h" + lives).classList.add("heart2");
-    lives = lives - 1;
-    console.log("you have " + lives + " lives");
-    }else {
-    document.querySelector("#h" + lives).classList.remove("heart1");
-    document.querySelector("#h" + lives).classList.add("heart2");
-    lives = lives - 1;
-    console.log("you have " + lives + " lives");
-    setTimeout(gameOver, 500)
+        document.querySelector("#h" + lives).classList.remove("heart1");
+        document.querySelector("#h" + lives).classList.add("heart2");
+        lives = lives - 1;
+        console.log("you have " + lives + " lives");
+    } else {
+        document.querySelector("#h" + lives).classList.remove("heart1");
+        document.querySelector("#h" + lives).classList.add("heart2");
+        lives = lives - 1;
+        console.log("you have " + lives + " lives");
+        setTimeout(gameOver, 500)
     }
 }
 
@@ -283,39 +287,21 @@ function restartMan() {
     newPosMan();
 }
 
-function globalPause() {
-    console.log("function globalPause()")
-//    document.querySelector("#woman-sprite").classList.add("stop");
-//    document.querySelector("#woman-container").classList.add("stop");
-//    document.querySelector("#man-sprite").classList.add("stop");
-//    document.querySelector("#man-container").classList.add("stop");
-//    document.querySelector("#trump-sprite").classList.add("stop");
-//    document.querySelector("#trump-container").classList.add("stop");
-//    document.querySelector("#tpos1").classList.add("stop");
-//    document.querySelector("#tpos2").classList.add("stop");
-//    document.querySelector("#tpos3").classList.add("stop");
-//    document.querySelector("#tpos4").classList.add("stop");
-//    document.querySelector("#tpos5").classList.add("stop");
-//    document.querySelector("#tpos6").classList.add("stop");
-//    document.querySelector().classList.add("stop");
-}
-
-
 function gameOver() {
     if (lives > 0) {
-    console.log("you win")
-    timeLeft = 0;
-    document.querySelector("#gamescreen").classList.add("hidden");
-    document.querySelector("#winscreen").classList.remove("hidden");
-    document.querySelector("#homebutton1").addEventListener("click", returnToMenu);
-    document.querySelector("#playagainbutton").addEventListener("click", start);
+        console.log("you win")
+        timeLeft = 0;
+        document.querySelector("#gamescreen").classList.add("hidden");
+        document.querySelector("#winscreen").classList.remove("hidden");
+        document.querySelector("#homebutton1").addEventListener("click", returnToMenu);
+        document.querySelector("#playagainbutton").addEventListener("click", start);
     } else {
-    console.log("you lose");
-    timeLeft = 0;
-    document.querySelector("#gamescreen").classList.add("hidden");
-    document.querySelector("#losescreen").classList.remove("hidden");
-    document.querySelector("#homebutton2").addEventListener("click", returnToMenu);
-    document.querySelector("#tryagainbutton").addEventListener("click", start);
+        console.log("you lose");
+        timeLeft = 0;
+        document.querySelector("#gamescreen").classList.add("hidden");
+        document.querySelector("#losescreen").classList.remove("hidden");
+        document.querySelector("#homebutton2").addEventListener("click", returnToMenu);
+        document.querySelector("#tryagainbutton").addEventListener("click", start);
     }
 }
 
@@ -341,6 +327,171 @@ function closeInstruction() {
     document.querySelector("#closeinstructions").classList.add("hidden");
 }
 
+
+function pauseGame() {
+    if (gameIsPaused == false) {
+        console.log("Game is Paused");
+        document.querySelector("#pause").classList.remove("pause1");
+        document.querySelector("#pause").classList.add("pause2");
+
+        //pause all animations
+        document.querySelector("#trump-sprite").classList.add("stop");
+        document.querySelector("#man-sprite").classList.add("stop");
+        document.querySelector("#woman-sprite").classList.add("stop");
+
+        document.querySelector("#trump-container").classList.add("stop");
+        document.querySelector("#man-container").classList.add("stop");
+        document.querySelector("#woman-container").classList.add("stop");
+
+        document.querySelector("#tpos1").classList.add("stop");
+        document.querySelector("#tpos1s").classList.add("stop");
+        document.querySelector("#tpos2").classList.add("stop");
+        document.querySelector("#tpos2s").classList.add("stop");
+        document.querySelector("#tpos3").classList.add("stop");
+        document.querySelector("#tpos3s").classList.add("stop");
+        document.querySelector("#tpos4").classList.add("stop");
+        document.querySelector("#tpos4s").classList.add("stop");
+        document.querySelector("#tpos5").classList.add("stop");
+        document.querySelector("#tpos5s").classList.add("stop");
+        document.querySelector("#tpos6").classList.add("stop");
+        document.querySelector("#tpos6s").classList.add("stop");
+
+        document.querySelector("#timer2").classList.add("stop");
+
+        //remove all event listeners
+        document.querySelector("#tpos1s").removeEventListener("animationend", restartMan);
+        document.querySelector("#tpos1s").removeEventListener("animationend", restartWoman);
+        document.querySelector("#tpos1s").removeEventListener("animationend", restartTrump);
+        document.querySelector("#tpos2s").removeEventListener("animationend", restartMan);
+        document.querySelector("#tpos2s").removeEventListener("animationend", restartWoman);
+        document.querySelector("#tpos2s").removeEventListener("animationend", restartTrump);
+        document.querySelector("#tpos3s").removeEventListener("animationend", restartMan);
+        document.querySelector("#tpos3s").removeEventListener("animationend", restartWoman);
+        document.querySelector("#tpos3s").removeEventListener("animationend", restartTrump);
+        document.querySelector("#tpos4s").removeEventListener("animationend", restartMan);
+        document.querySelector("#tpos4s").removeEventListener("animationend", restartWoman);
+        document.querySelector("#tpos4s").removeEventListener("animationend", restartTrump);
+        document.querySelector("#tpos5s").removeEventListener("animationend", restartMan);
+        document.querySelector("#tpos5s").removeEventListener("animationend", restartWoman);
+        document.querySelector("#tpos5s").removeEventListener("animationend", restartTrump);
+        document.querySelector("#tpos6s").removeEventListener("animationend", restartMan);
+        document.querySelector("#tpos6s").removeEventListener("animationend", restartWoman);
+        document.querySelector("#tpos6s").removeEventListener("animationend", restartTrump);
+
+        document.querySelector("#tpos1").removeEventListener("animationend", splatMan);
+        document.querySelector("#tpos1").removeEventListener("animationend", splatWoman);
+        document.querySelector("#tpos1").removeEventListener("animationend", splatTrump);
+        document.querySelector("#tpos2").removeEventListener("animationend", splatMan);
+        document.querySelector("#tpos2").removeEventListener("animationend", splatWoman);
+        document.querySelector("#tpos2").removeEventListener("animationend", splatTrump);
+        document.querySelector("#tpos3").removeEventListener("animationend", splatMan);
+        document.querySelector("#tpos3").removeEventListener("animationend", splatWoman);
+        document.querySelector("#tpos3").removeEventListener("animationend", splatTrump);
+        document.querySelector("#tpos4").removeEventListener("animationend", splatMan);
+        document.querySelector("#tpos4").removeEventListener("animationend", splatWoman);
+        document.querySelector("#tpos4").removeEventListener("animationend", splatTrump);
+        document.querySelector("#tpos5").removeEventListener("animationend", splatMan);
+        document.querySelector("#tpos5").removeEventListener("animationend", splatWoman);
+        document.querySelector("#tpos5").removeEventListener("animationend", splatTrump);
+        document.querySelector("#tpos6").removeEventListener("animationend", splatMan);
+        document.querySelector("#tpos6").removeEventListener("animationend", splatWoman);
+        document.querySelector("#tpos6").removeEventListener("animationend", splatTrump);
+
+        document.querySelector("#man-sprite").removeEventListener("click", stopMan);
+        document.querySelector("#woman-sprite").removeEventListener("click", stopWoman);
+        document.querySelector("#trump-sprite").removeEventListener("click", stopTrump);
+
+        document.querySelector("#man-sprite").removeEventListener("animationiteration", newPosMan);
+        document.querySelector("#woman-sprite").removeEventListener("animationiteration", newPosWoman);
+        document.querySelector("#trump-sprite").removeEventListener("animationiteration", newPosTrump);
+
+        document.querySelector("#trump-sprite").removeEventListener("animationiteration", loseLife);
+
+        gameIsPaused = true;
+
+    } else {
+        console.log("Game is NOT Paused");
+
+        document.querySelector("#pause").classList.remove("pause2");
+        document.querySelector("#pause").classList.add("pause1");
+
+        //remove all pause classes
+        document.querySelector("#trump-sprite").classList.remove("stop");
+        document.querySelector("#man-sprite").classList.remove("stop");
+        document.querySelector("#woman-sprite").classList.remove("stop");
+
+        document.querySelector("#trump-container").classList.remove("stop");
+        document.querySelector("#man-container").classList.remove("stop");
+        document.querySelector("#woman-container").classList.remove("stop");
+
+        document.querySelector("#tpos1").classList.remove("stop");
+        document.querySelector("#tpos1s").classList.remove("stop");
+        document.querySelector("#tpos2").classList.remove("stop");
+        document.querySelector("#tpos2s").classList.remove("stop");
+        document.querySelector("#tpos3").classList.remove("stop");
+        document.querySelector("#tpos3s").classList.remove("stop");
+        document.querySelector("#tpos4").classList.remove("stop");
+        document.querySelector("#tpos4s").classList.remove("stop");
+        document.querySelector("#tpos5").classList.remove("stop");
+        document.querySelector("#tpos5s").classList.remove("stop");
+        document.querySelector("#tpos6").classList.remove("stop");
+        document.querySelector("#tpos6s").classList.remove("stop");
+
+        document.querySelector("#timer2").classList.remove("stop");
+
+        //add all event listerners back
+        document.querySelector("#tpos1s").addEventListener("animationend", restartMan);
+        document.querySelector("#tpos1s").addEventListener("animationend", restartWoman);
+        document.querySelector("#tpos1s").addEventListener("animationend", restartTrump);
+        document.querySelector("#tpos2s").addEventListener("animationend", restartMan);
+        document.querySelector("#tpos2s").addEventListener("animationend", restartWoman);
+        document.querySelector("#tpos2s").addEventListener("animationend", restartTrump);
+        document.querySelector("#tpos3s").addEventListener("animationend", restartMan);
+        document.querySelector("#tpos3s").addEventListener("animationend", restartWoman);
+        document.querySelector("#tpos3s").addEventListener("animationend", restartTrump);
+        document.querySelector("#tpos4s").addEventListener("animationend", restartMan);
+        document.querySelector("#tpos4s").addEventListener("animationend", restartWoman);
+        document.querySelector("#tpos4s").addEventListener("animationend", restartTrump);
+        document.querySelector("#tpos5s").addEventListener("animationend", restartMan);
+        document.querySelector("#tpos5s").addEventListener("animationend", restartWoman);
+        document.querySelector("#tpos5s").addEventListener("animationend", restartTrump);
+        document.querySelector("#tpos6s").addEventListener("animationend", restartMan);
+        document.querySelector("#tpos6s").addEventListener("animationend", restartWoman);
+        document.querySelector("#tpos6s").addEventListener("animationend", restartTrump);
+
+        document.querySelector("#tpos1").addEventListener("animationend", splatMan);
+        document.querySelector("#tpos1").addEventListener("animationend", splatWoman);
+        document.querySelector("#tpos1").addEventListener("animationend", splatTrump);
+        document.querySelector("#tpos2").addEventListener("animationend", splatMan);
+        document.querySelector("#tpos2").addEventListener("animationend", splatWoman);
+        document.querySelector("#tpos2").addEventListener("animationend", splatTrump);
+        document.querySelector("#tpos3").addEventListener("animationend", splatMan);
+        document.querySelector("#tpos3").addEventListener("animationend", splatWoman);
+        document.querySelector("#tpos3").addEventListener("animationend", splatTrump);
+        document.querySelector("#tpos4").addEventListener("animationend", splatMan);
+        document.querySelector("#tpos4").addEventListener("animationend", splatWoman);
+        document.querySelector("#tpos4").addEventListener("animationend", splatTrump);
+        document.querySelector("#tpos5").addEventListener("animationend", splatMan);
+        document.querySelector("#tpos5").addEventListener("animationend", splatWoman);
+        document.querySelector("#tpos5").addEventListener("animationend", splatTrump);
+        document.querySelector("#tpos6").addEventListener("animationend", splatMan);
+        document.querySelector("#tpos6").addEventListener("animationend", splatWoman);
+        document.querySelector("#tpos6").addEventListener("animationend", splatTrump);
+
+        document.querySelector("#man-sprite").addEventListener("click", stopMan);
+        document.querySelector("#woman-sprite").addEventListener("click", stopWoman);
+        document.querySelector("#trump-sprite").addEventListener("click", stopTrump);
+
+        document.querySelector("#man-sprite").addEventListener("animationiteration", newPosMan);
+        document.querySelector("#woman-sprite").addEventListener("animationiteration", newPosWoman);
+        document.querySelector("#trump-sprite").addEventListener("animationiteration", newPosTrump);
+
+        document.querySelector("#trump-sprite").addEventListener("animationiteration", loseLife);
+
+        gameIsPaused = false;
+        startTimer();
+    }
+}
 
 //------------Tomato on aside---------------
 

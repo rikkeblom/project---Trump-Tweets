@@ -96,20 +96,6 @@ li {
     transform: scale(1.1)
 }
 
-#homebutton2 {
-    background-image: url(design/button-tomato-home.svg);
-    background-size: cover;
-    height: 12.5vw;
-    width: 12.5vw;
-    position: absolute;
-    left: 42vw;
-    bottom: 3vw;
-}
-
-#homebutton2:hover{
-    transform: scale(1.1)
-}
-
 #playagainbutton {
     background-image: url(design/button-tomato-play-again.svg);
     background-size: cover;
@@ -122,6 +108,121 @@ li {
 
 #playagainbutton:hover{
     transform: scale(1.1)
+}
+
+#lightning1 {
+    background-image: url(design/lightning1.svg);
+    background-size: cover;
+    height: 2.5vw;
+    width: 1.4vw;
+    position: absolute;
+    left: 36.5vw;
+    bottom: 30vw;
+}
+
+#lightning2 {
+    background-image: url(design/lightning1.svg);
+    background-size: cover;
+    height: 5vw;
+    width: 2.9vw;
+    position: absolute;
+    left: 27.5vw;
+    bottom: 29vw;
+}
+
+#lightning3 {
+    background-image: url(design/lightning3.svg);
+    background-size: cover;
+    height: 3vw;
+    width: 1.5vw;
+    position: absolute;
+    left: 32.5vw;
+    bottom: 32vw;
+}
+
+.spark1 {
+    animation-name: spark1;
+    animation-duration: 2s;
+    animation-iteration-count: infinite;
+    transition-timing-function: cubic-bezier(0,1.14,.59,.59);
+}
+
+.spark2 {
+    animation-name: spark2;
+    animation-duration: 2.5s;
+    animation-iteration-count: infinite;
+}
+
+.spark3 {
+    animation-name: spark3;
+    animation-duration: 1.5s;
+    animation-iteration-count: infinite;
+}
+
+@keyframes spark1 {
+    0% {
+        opacity: 1;
+    }
+    25% {
+        transform: translate(-1vw, -1vw);
+        opacity: 1;
+    }
+    50% {
+        transform: translate(0vw, -2vw);
+        opacity: 1;
+    }
+    75% {
+        transform: translate(-1vw, -3vw);
+        opacity: 1;
+    }
+    80% {
+        transform: translate(0vw, 4vw;);
+        opacity: 0;
+    }
+}
+
+@keyframes spark2 {
+    0% {
+        opacity: 1;
+    }
+    25% {
+        transform: translate(-1vw, -1vw);
+        opacity: 1;
+    }
+    50% {
+        transform: translate(0vw, -2vw);
+        opacity: 1;
+    }
+    75% {
+        transform: translate(-1vw, -3vw);
+        opacity: 1;
+    }
+    80% {
+        transform: translate(0vw, 4vw;);
+        opacity: 0;
+    }
+}
+
+@keyframes spark3 {
+    0% {
+        opacity: 1;
+    }
+    25% {
+        transform: translate(-1vw, -1vw);
+        opacity: 1;
+    }
+    50% {
+        transform: translate(0vw, -2vw);
+        opacity: 1;
+    }
+    75% {
+        transform: translate(-1vw, -3vw);
+        opacity: 1;
+    }
+    80% {
+        transform: translate(0vw, 4vw;);
+        opacity: 0;
+    }
 }
 
 /* ------------- lose screen ----------- */
@@ -146,6 +247,59 @@ li {
 
 #tryagainbutton:hover{
     transform: scale(1.1);
+}
+
+#homebutton2 {
+    background-image: url(design/button-tomato-home.svg);
+    background-size: cover;
+    height: 12.5vw;
+    width: 12.5vw;
+    position: absolute;
+    left: 42vw;
+    bottom: 3vw;
+}
+
+#homebutton2:hover{
+    transform: scale(1.1)
+}
+
+#losetweet {
+    background-image: url(design/fail-tweet.svg);
+    background-size: cover;
+    height: 14.4vw;
+    width: 34.8vw;
+    position: absolute;
+    left: 2.5vw;
+    bottom: 3vw;
+    z-index: 3;
+}
+
+#losetrump {
+    background-image: url(design/fail-trump.svg);
+    background-size: cover;
+    height: 20.9vw;
+    width: 24.2vw;
+    position: absolute;
+    left: 5.3vw;
+    top: 5vw;
+    z-index: 2;
+}
+
+.trumplaugh {
+    animation-name: trumpLaugh;
+    animation-duration: 0.2s;
+    animation-iteration-count: infinite;
+    animation-direction:alternate-reverse;
+    transition-timing-function: cubic-bezier(.17,.67,.89,.44);
+}
+
+@keyframes trumpLaugh {
+    0% {
+        transform: translateY(0)
+    }
+    100% {
+        transform: translateY(0.3vw)
+    }
 }
 
 /* ----------- start screen ------------ */
@@ -468,9 +622,18 @@ keyframes countdown{
     z-index: 6;
 }
 
-.pause {
+.pause1 {
     position: absolute;
     background-image: url(design/button-pause.svg);
+    background-size: cover;
+    width: 2.5vw;
+    height: 2.5vw;
+    z-index: 6;
+}
+
+.pause2 {
+    position: absolute;
+    background-image: url(design/button-play.svg);
     background-size: cover;
     width: 2.5vw;
     height: 2.5vw;
