@@ -424,12 +424,16 @@ li {
     background-image: url(design/trump-neutral.svg);
     background-size: cover;
     position: absolute;
+    width: 12.5vw;
+    height: 11.25vw;
 }
 
 .trump2-sprite {
     background-image: url(design/trump-shocked.svg);
     background-size: cover;
     position: absolute;
+    width: 12.5vw;
+    height: 11.25vw;
 }
 
 #trump-container {
@@ -443,12 +447,16 @@ li {
     background-image: url(design/woman-neutral.svg);
     background-size: cover;
     position: absolute;
+    width: 12.5vw;
+    height: 11.25vw;
 }
 
 .woman2-sprite{
     background-image: url(design/woman-shocked.svg);
     background-size: cover;
     position: absolute;
+    width: 12.5vw;
+    height: 11.25vw;
 }
 
 #woman-container {
@@ -462,12 +470,16 @@ li {
     background-image: url(design/man-neutral.svg);
     background-size: cover;
     position: absolute;
+    width: 12.5vw;
+    height: 11.25vw;
 }
 
 .man2-sprite {
     background-image: url(design/man-shocked.svg);
     background-size: cover;
     position: absolute;
+    width: 12.5vw;
+    height: 11.25vw;
 }
 
 #man-container {
