@@ -212,6 +212,7 @@ function stopTrump() {
     document.querySelector("#t" + p).addEventListener("animationend", splatTrump);
     score = score + 1;
     document.querySelector("#currentScore").textContent = score;
+    setTimeout(splatTrump, 501);
 }
 
 function stopWoman() {
@@ -224,6 +225,7 @@ function stopWoman() {
     this.classList.add("woman2-sprite");
     loseLife();
     document.querySelector("#t" + p).addEventListener("animationend", splatWoman);
+    setTimeout(splatWoman, 501);
 }
 
 function stopMan() {
@@ -236,6 +238,7 @@ function stopMan() {
     this.classList.add("man2-sprite");
     loseLife();
     document.querySelector("#t" + p).addEventListener("animationend", splatMan);
+    setTimeout(splatMan, 501);
 }
 
 function splatTrump() {
@@ -244,6 +247,7 @@ function splatTrump() {
     document.querySelector("#t" + p + "s").classList.remove("hidden");
     document.querySelector("#t" + p + "s").classList.add("zoom_in");
     document.querySelector("#t" + p + "s").addEventListener("animationend", restartTrump);
+    setTimeout(restartTrump, 151)
 }
 
 function splatWoman() {
@@ -251,6 +255,7 @@ function splatWoman() {
     document.querySelector("#t" + p + "s").classList.remove("hidden");
     document.querySelector("#t" + p + "s").classList.add("zoom_in");
     document.querySelector("#t" + p + "s").addEventListener("animationend", restartWoman);
+    setTimeout(restartWoman, 151)
 }
 
 function splatMan() {
@@ -258,6 +263,7 @@ function splatMan() {
     document.querySelector("#t" + p + "s").classList.remove("hidden");
     document.querySelector("#t" + p + "s").classList.add("zoom_in");
     document.querySelector("#t" + p + "s").addEventListener("animationend", restartMan);
+    setTimeout(restartMan, 151)
 }
 
 function restartTrump() {

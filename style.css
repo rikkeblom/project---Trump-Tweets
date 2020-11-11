@@ -225,6 +225,17 @@ li {
     }
 }
 
+#wintext2 {
+    font-size: 1.8vw;
+    color: white;
+}
+
+#wintext1 {
+    font-size: 1.8vw;
+    color: white;
+    display: block;
+}
+
 /* ------------- lose screen ----------- */
 
 #losescreen {
@@ -686,9 +697,8 @@ a:active {
 
 .upDown {
     animation-name: upDown;
-    animation-duration: 4s;
+    animation-duration: 2s;
     animation-iteration-count: infinite;
-/*    animation-direction: alternate;*/
 }
 
 @keyframes upDown {
@@ -847,7 +857,7 @@ a:active {
 
 .zoom_in {
     animation-name: zoom_in;
-    animation-duration: 0.2s;
+    animation-duration: 0.15s;
 }
 
 @keyframes zoom_in {
@@ -861,7 +871,7 @@ a:active {
 
 .zoom_out {
     animation-name: zoom_out;
-    animation-duration: 0.7s;
+    animation-duration: 0.5s;
     animation-timing-function: cubic-bezier(.34,.01,1,1);
 }
 
