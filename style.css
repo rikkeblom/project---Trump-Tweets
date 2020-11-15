@@ -92,7 +92,7 @@ li {
     bottom: 3vw;
 }
 
-#homebutton1:hover{
+#homebutton1:hover {
     transform: scale(1.1)
 }
 
@@ -106,7 +106,7 @@ li {
     bottom: 3vw;
 }
 
-#playagainbutton:hover{
+#playagainbutton:hover {
     transform: scale(1.1)
 }
 
@@ -144,7 +144,7 @@ li {
     animation-name: spark1;
     animation-duration: 2s;
     animation-iteration-count: infinite;
-    transition-timing-function: cubic-bezier(0,1.14,.59,.59);
+    transition-timing-function: cubic-bezier(0, 1.14, .59, .59);
 }
 
 .spark2 {
@@ -163,20 +163,24 @@ li {
     0% {
         opacity: 1;
     }
+
     25% {
         transform: translate(-1vw, -1vw);
         opacity: 1;
     }
+
     50% {
         transform: translate(0vw, -2vw);
         opacity: 1;
     }
+
     75% {
         transform: translate(-1vw, -3vw);
         opacity: 1;
     }
+
     80% {
-        transform: translate(0vw, 4vw;);
+        transform: translate(0vw, 4vw);
         opacity: 0;
     }
 }
@@ -185,20 +189,24 @@ li {
     0% {
         opacity: 1;
     }
+
     25% {
         transform: translate(-1vw, -1vw);
         opacity: 1;
     }
+
     50% {
         transform: translate(0vw, -2vw);
         opacity: 1;
     }
+
     75% {
         transform: translate(-1vw, -3vw);
         opacity: 1;
     }
+
     80% {
-        transform: translate(0vw, 4vw;);
+        transform: translate(0vw, 4vw);
         opacity: 0;
     }
 }
@@ -207,20 +215,24 @@ li {
     0% {
         opacity: 1;
     }
+
     25% {
         transform: translate(-1vw, -1vw);
         opacity: 1;
     }
+
     50% {
         transform: translate(0vw, -2vw);
         opacity: 1;
     }
+
     75% {
         transform: translate(-1vw, -3vw);
         opacity: 1;
     }
+
     80% {
-        transform: translate(0vw, 4vw;);
+        transform: translate(0vw, 4vw);
         opacity: 0;
     }
 }
@@ -256,7 +268,7 @@ li {
     bottom: 3vw;
 }
 
-#tryagainbutton:hover{
+#tryagainbutton:hover {
     transform: scale(1.1);
 }
 
@@ -270,7 +282,7 @@ li {
     bottom: 3vw;
 }
 
-#homebutton2:hover{
+#homebutton2:hover {
     transform: scale(1.1)
 }
 
@@ -300,14 +312,15 @@ li {
     animation-name: trumpLaugh;
     animation-duration: 0.2s;
     animation-iteration-count: infinite;
-    animation-direction:alternate-reverse;
-    transition-timing-function: cubic-bezier(.17,.67,.89,.44);
+    animation-direction: alternate-reverse;
+    transition-timing-function: cubic-bezier(.17, .67, .89, .44);
 }
 
 @keyframes trumpLaugh {
     0% {
         transform: translateY(0)
     }
+
     100% {
         transform: translateY(0.3vw)
     }
@@ -334,7 +347,7 @@ li {
 }
 
 #startbutton:hover {
-   transform: scale(1.1);
+    transform: scale(1.1);
 }
 
 #howtoplaybutton {
@@ -348,12 +361,12 @@ li {
 }
 
 #howtoplaybutton:hover {
-   transform: scale(1.1);
+    transform: scale(1.1);
 }
 
 #instructionsscreen {
     background-image: url(design/how-to-play.svg);
-    background-size:cover;
+    background-size: cover;
     width: 39vw;
     height: 27vw;
     position: absolute;
@@ -366,13 +379,49 @@ li {
     background-size: cover;
     width: 4.5vw;
     height: 4.5vw;
-    position:absolute;
-    left:51.5vw;
-    bottom: 29vw;
+    position: absolute;
+    left: 33.3vw;
+    bottom: 21.3vw;
 }
 
 #closeinstructions:hover {
     transform: scale(1.1);
+}
+
+#insth1 {
+    font-size: 2.3vw;
+    position: absolute;
+    left: 13vw;
+    top:1vw;
+}
+
+#pitch {
+    position: absolute;
+    font-size: 1.1vw;
+    left:11.3vw;
+    right: 2.3vw;
+    top: 7.2vw;
+    line-height:
+}
+
+#objective {
+    position: absolute;
+    font-size: 1.1vw;
+    left:2.6vw;
+    right:2.3vw;
+    top: 15vw;
+    line-height: 1.8vw;
+}
+
+.open {
+    animation-name: open;
+    animation-duration: 0.15s;
+    animation-iteration-count: 1;
+}
+
+@keyframes open{
+    0% {transform: scale(0)}
+    100% {transform: scale(1)}
 }
 
 /*Game Screen starts here*/
@@ -443,7 +492,7 @@ li {
     height: 11.25vw;
 }
 
-.woman1-sprite{
+.woman1-sprite {
     background-image: url(design/woman-neutral.svg);
     background-size: cover;
     position: absolute;
@@ -451,7 +500,7 @@ li {
     height: 11.25vw;
 }
 
-.woman2-sprite{
+.woman2-sprite {
     background-image: url(design/woman-shocked.svg);
     background-size: cover;
     position: absolute;
@@ -559,10 +608,11 @@ li {
     top: 1.4vw;
 }
 
-.countdown{
+.countdown {
     transform: scaleX(0.1);
     transform-origin: left bottom;
-    animation: squeeze 60s infinite;
+    animation-name: squeeze;
+    animation-duration: 60s;
 }
 
 @keyframes squeeze {
@@ -572,15 +622,6 @@ li {
 
     100% {
         transform: scaleX(0);
-    }
-}
-
-keyframes countdown{
-    0% {
-        transform: scaleX(1)
-    }
-    100% {
-        transform: scaleX(0)
     }
 }
 
@@ -735,7 +776,7 @@ a:active {
     display: none;
 }
 
-#tpos1{
+#tpos1 {
     background-image: url(design/tomato.svg);
     width: 5vw;
     height: 5vw;
@@ -757,7 +798,7 @@ a:active {
     bottom: 16vw;
 }
 
-#tpos2{
+#tpos2 {
     background-image: url(design/tomato.svg);
     width: 5vw;
     height: 5vw;
@@ -779,7 +820,7 @@ a:active {
     bottom: 16vw;
 }
 
-#tpos3{
+#tpos3 {
     background-image: url(design/tomato.svg);
     width: 5vw;
     height: 5vw;
@@ -801,7 +842,7 @@ a:active {
     bottom: 8vw;
 }
 
-#tpos4{
+#tpos4 {
     background-image: url(design/tomato.svg);
     width: 5vw;
     height: 5vw;
@@ -823,7 +864,7 @@ a:active {
     bottom: 9vw;
 }
 
-#tpos5{
+#tpos5 {
     background-image: url(design/tomato.svg);
     width: 5vw;
     height: 5vw;
@@ -845,7 +886,7 @@ a:active {
     bottom: 9vw;
 }
 
-#tpos6{
+#tpos6 {
     background-image: url(design/tomato.svg);
     width: 5vw;
     height: 5vw;
@@ -876,6 +917,7 @@ a:active {
     0% {
         transform: scale(0.2);
     }
+
     100% {
         transform: scale(1)
     }
@@ -884,13 +926,14 @@ a:active {
 .zoom_out {
     animation-name: zoom_out;
     animation-duration: 0.5s;
-    animation-timing-function: cubic-bezier(.34,.01,1,1);
+    animation-timing-function: cubic-bezier(.34, .01, 1, 1);
 }
 
 @keyframes zoom_out {
     0% {
         transform: scale(3);
     }
+
     100% {
         transform: scale(1)
     }

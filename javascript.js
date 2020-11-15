@@ -86,7 +86,7 @@ function showTime() {
         timeLeft--;
         startTimer();
     } else {
-        gameOver();
+        startTimer();
     }
 }
 
@@ -110,6 +110,7 @@ function gainLife() {
     document.querySelector("#h" + lives).classList.remove("heart2");
     document.querySelector("#h" + lives).classList.add("heart1");
     console.log("you have " + lives + " lives");
+//this function is only in here for testing purposes
 }
 
 function loseLife() {
@@ -486,13 +487,14 @@ function openInstruction() {
     console.log("function openInstruction()")
     document.querySelector("#instructionsscreen").classList.remove("hidden");
     document.querySelector("#closeinstructions").classList.remove("hidden");
-    document.querySelector("#closeinstructions").addEventListener("click", closeInstruction)
+    document.querySelector("#closeinstructions").addEventListener("click", closeInstruction);
 }
 
 function closeInstruction() {
     console.log("function closeInstruction()")
     document.querySelector("#instructionsscreen").classList.add("hidden");
     document.querySelector("#closeinstructions").classList.add("hidden");
+    document.querySelector("#closeinstructions").removeEventListener("click", closeInstruction);
 }
 
 function pauseGame() {
@@ -662,10 +664,10 @@ function pauseGame() {
 
 //------------Tomato on aside---------------
 
-var image_tracker = "t";
+let image_tracker = "t";
 
 function splash() {
-    var image = document.getElementById("tomato");
+    let image = document.getElementById("tomato");
     if (image_tracker == 't') {
         image.src = "design/splash.svg";
         image_tracker = "s";
