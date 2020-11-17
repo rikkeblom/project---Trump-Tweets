@@ -237,15 +237,46 @@ li {
     }
 }
 
-#wintext2 {
-    font-size: 1.8vw;
+#winText {
+    position: absolute;
     color: white;
+    left: 40vw;
+    right: 4vw;
 }
 
-#wintext1 {
-    font-size: 1.8vw;
-    color: white;
-    display: block;
+#win1 {
+    font-size: 4.8vw;
+    position: absolute;
+    left: 3.7vw;
+    top: 1.6vw;
+}
+
+#win2 {
+    font-size: 2vw;
+    position: absolute;
+    top: 9.8vw;
+    left: 3vw;
+}
+
+#win3 {
+    font-size: 1.6vw;
+    text-align: center;
+    position: absolute;
+    top:12.8vw;
+}
+
+#win4 {
+    font-size: 2vw;
+    top: 21.8vw;
+    left: 10vw;
+    position: absolute;
+}
+
+#finalScore {
+    font-size: 1.9vw;
+    font-family: 'Patrick Hand', cursive;
+    text-decoration: underline;
+
 }
 
 /* ------------- lose screen ----------- */
@@ -324,6 +355,40 @@ li {
     100% {
         transform: translateY(0.3vw)
     }
+}
+
+#loseText {
+    color: white;
+    position: absolute;
+    left: 39vw;
+    right: 3vw;
+}
+
+#lose1 {
+    font-size: 4.8vw;
+    position: absolute;
+    left: 8vw;
+    top: 1.6vw;
+}
+
+#lose2 {
+    position: absolute;
+    font-size: 2vw;
+    top: 9.8vw;
+    left: 5.7vw;
+}
+
+#lose3 {
+    position: absolute;
+    text-align: center;
+    top: 12.8vw;
+}
+
+#lose4 {
+    position: absolute;
+    font-size: 2vw;
+    top: 20vw;
+    left: 11vw;
 }
 
 /* ----------- start screen ------------ */
@@ -424,7 +489,7 @@ li {
     100% {transform: scale(1)}
 }
 
-/*Game Screen starts here*/
+/* ------------------- Game Screen starts here --------------------- */
 
 .front1 {
     position: absolute;
@@ -677,9 +742,26 @@ li {
     right: 7vw;
 }
 
+#sound:hover {
+    transform: scale(1.1)
+}
+
+#pause:hover {
+    transform: scale(1.1)
+}
+
 .soundon {
     position: absolute;
     background-image: url(design/button-sound-on.svg);
+    background-size: cover;
+    width: 2.5vw;
+    height: 2.5vw;
+    z-index: 6;
+}
+
+.soundoff {
+    position: absolute;
+    background-image: url(design/button-sound-off.svg);
     background-size: cover;
     width: 2.5vw;
     height: 2.5vw;

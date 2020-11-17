@@ -26,14 +26,17 @@
                 <div id="instructionsscreen" class="hidden open">
                     <div id="instructions">
                         <h1 id=insth1>How to Play</h1>
-                        <div id="pitch"><p><strong>DO:</strong> hit Trump before he finishes his tweet</p>
-                        <p><strong>DON’T:</strong> hit any of the other people in the garden - or you will be kicked out!</p></div>
+                        <div id="pitch">
+                            <p><strong>DO:</strong> hit Trump before he finishes his tweet</p>
+                            <p><strong>DON’T:</strong> hit any of the other people in the garden - or you will be kicked out!</p>
+                        </div>
                         <p id="objective"><strong>Your objective is to keep Trump from tweeting for one minute</strong>
                             Armed with a basket full of ripe tomatos you wait in the garden to prevent another mortally stupid tweet from the orange man in the white house.</p>
                     </div>
                     <div id="closeinstructions" class="hidden"></div>
                 </div>
             </div>
+
             <div id="gamescreen" class="hidden">
 
                 <div id="man-container">
@@ -80,6 +83,9 @@
                 <div id="h3" class="heart1 hpos3"></div>
                 <div id="sound" class="soundon spos1"></div>
                 <div id="pause" class="pause1 spos2"></div>
+
+                <audio id="backMus" src="audio/harlequin-dance-edit.mp3"></audio>
+                <audio id="tomatoSound" src="audio/wee-splat.mp3"></audio>
             </div>
 
             <div id="winscreen" class="hidden">
@@ -88,13 +94,25 @@
                 <div id="lightning1" class="spark1"></div>
                 <div id="lightning2" class="spark2"></div>
                 <div id="lightning3" class="spark3"></div>
+                <div id="winText">
+                    <h1 id="win1">You did it!</h1>
+                    <h2 id="win2">You completed the mission</h2>
+                    <p id="win3">Trump was distracted for 60 seconds - preventing <span id="finalScore"></span> from ever seeing the light of day.</p>
+                    <h2 id="win4">Play again?</h2>
+                </div>
             </div>
 
-            <div id="losescreen" class="hidden">
+            <div id="losescreen" >
                 <div id="homebutton2"></div>
                 <div id="tryagainbutton"></div>
                 <div id="losetweet"></div>
                 <div id="losetrump" class="trumplaugh"></div>
+                <div id="loseText">
+                    <h1 id="lose1">OH NO!</h1>
+                    <h2 id="lose2">You failed the mission</h2>
+                    <p id="lose3">Trump finished his tweet and the world just got a little bit more stupid.</p>
+                    <h2 id="lose4">Try again?</h2>
+                </div>
             </div>
         </section>
 
@@ -114,5 +132,7 @@
             </ul>
         </nav>
     </footer>
-        <script src="javascript.js"></script>
-</body></html>
+    <script src="javascript.js"></script>
+</body>
+
+</html>

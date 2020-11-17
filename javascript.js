@@ -5,6 +5,8 @@ let p;
 let timeLeft = 60;
 let gameIsPaused = false;
 let gameHasEnded = false;
+let backMusic = document.querySelector("#backMus");
+let tomatoSound = document.querySelector("#tomatoSound");
 
 function frontPage() {
     document.querySelector("#gamescreen").classList.add("hidden");
@@ -75,10 +77,24 @@ function start() {
     document.querySelector("#man-sprite").addEventListener("click", stopMan);
 
     document.querySelector("#pause").addEventListener("click", pauseGame);
+    document.querySelector("#sound").addEventListener("click", muteSound);
     startTimer();
+    playBackgroundMusic();
 
     //    document.querySelector("#h1").addEventListener("click", gainLife);
     //    document.querySelector("#h3").addEventListener("click", loseLife);
+}
+
+function playBackgroundMusic() {
+    console.log("function playBackgroundMusic()");
+    backMusic.play();
+    backMusic.volume = 0.3;
+}
+
+function playTomatoSound() {
+    console.log("function playTomatoSound()");
+    tomatoSound.play();
+    tomatoSound.volume = 1.5;
 }
 
 function showTime() {
@@ -222,6 +238,7 @@ function stopTrump() {
     score = score + 1;
     document.querySelector("#currentScore").textContent = score;
     setTimeout(splatTrump, 501);
+    playTomatoSound();
 }
 
 function stopWoman() {
@@ -235,6 +252,7 @@ function stopWoman() {
     loseLife();
     document.querySelector("#t" + p).addEventListener("animationend", splatWoman);
     setTimeout(splatWoman, 501);
+    playTomatoSound();
 }
 
 function stopMan() {
@@ -248,6 +266,7 @@ function stopMan() {
     loseLife();
     document.querySelector("#t" + p).addEventListener("animationend", splatMan);
     setTimeout(splatMan, 501);
+    playTomatoSound();
 }
 
 function splatTrump() {
@@ -473,6 +492,7 @@ function youWin() {
         // Show winScreen
         document.querySelector("#gamescreen").classList.add("hidden");
         document.querySelector("#winscreen").classList.remove("hidden");
+        document.querySelector("#finalScore").textContent = score + " tweets";
 
         // Adding a "Restart Game" button
         document.querySelector("#homebutton1").addEventListener("click", frontPage);
@@ -659,6 +679,21 @@ function pauseGame() {
 
         gameIsPaused = false;
         startTimer();
+    }
+}
+
+function muteSound() {
+    console.log("function muteSound()");
+    if(backMusic.muted == false) {
+        backMusic.muted = true;
+        tomatoSound.muted = true;
+        document.querySelector("#sound").classList.remove("soundon");
+        document.querySelector("#sound").classList.add("soundoff");
+    } else {
+        backMusic.muted = false;
+        tomatoSound.muted = false;
+        document.querySelector("#sound").classList.remove("soundoff");
+        document.querySelector("#sound").classList.add("soundon");
     }
 }
 
