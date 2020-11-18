@@ -7,6 +7,15 @@ let gameIsPaused = false;
 let gameHasEnded = false;
 let backMusic = document.querySelector("#backMus");
 let tomatoSound = document.querySelector("#tomatoSound");
+let splatSound = document.querySelector("#splatSound");
+let electricitySound = document.querySelector("#electricitySound");
+let loseSound1 = document.querySelector("#loseTrump");
+let loseSound2 = document.querySelector("#loseWauWau");
+let tremendusSound = document.querySelector("#tremendus");
+let clickSound = document.querySelector("#clickSound");
+let tadaSound = document.querySelector("#tadaSound");
+let manSound = document.querySelector("#manSound")
+let womanSound = document.querySelector("#womanSound")
 
 function frontPage() {
     document.querySelector("#gamescreen").classList.add("hidden");
@@ -15,6 +24,13 @@ function frontPage() {
     document.querySelector("#startscreen").classList.remove("hidden");
     document.querySelector("#startbutton").addEventListener("click", start);
     document.querySelector("#howtoplaybutton").addEventListener("click", openInstruction);
+    document.querySelector("#startbutton").addEventListener("click", playClickSound);
+    document.querySelector("#howtoplaybutton").addEventListener("click", playClickSound);
+
+    electricitySound.muted = true;
+    backMusic.muted = true;
+    loseSound1.muted = true;
+    loseSound2.muted = true;
 }
 
 function start() {
@@ -40,6 +56,18 @@ function start() {
     gameIsPaused = false;
     gameHasEnded = false;
     document.querySelector("#currentScore").textContent = score;
+
+    backMusic.muted = false;
+    backMusic.currentTime = 0;
+    tomatoSound.muted = false;
+    tremendusSound.muted = false;
+    loseSound1.muted = true;
+    loseSound2.muted = true;
+    document.querySelector("#sound").classList.remove("soundoff");
+    document.querySelector("#sound").classList.add("soundon");
+    electricitySound.muted = true;
+    womanSound.muted = false;
+    manSound.muted = false;
 
     document.querySelector("#tpos1").classList.add("hidden");
     document.querySelector("#tpos1s").classList.add("hidden");
@@ -88,13 +116,62 @@ function start() {
 function playBackgroundMusic() {
     console.log("function playBackgroundMusic()");
     backMusic.play();
-    backMusic.volume = 0.3;
+    backMusic.volume = 0.2;
+    backMusic.loop = true;
 }
 
 function playTomatoSound() {
     console.log("function playTomatoSound()");
     tomatoSound.play();
-    tomatoSound.volume = 1.5;
+    tomatoSound.volume = 1;
+}
+
+function playSplatSound() {
+    console.log("function playSplatSound()");
+    splatSound.play();
+    splatSound.volume = 0.2;
+}
+
+function playElectricitySound() {
+    console.log("function playElectricitySound()");
+    electricitySound.play();
+    electricitySound.loop = true;
+}
+
+function playLoseSound1() {
+    console.log("playLoseSound1()");
+    loseSound1.play();
+    loseSound1.loop = true;
+    loseSound1.volume = 0.2;
+    loseSound1.muted = false;
+}
+
+function playLoseSound2() {
+    console.log("playLoseSound2()");
+    loseSound2.muted = false;
+    loseSound2.play();
+}
+
+function playClickSound() {
+clickSound.play();
+clickSound.currentTime = 0;
+}
+
+function playTremendusSound() {
+    tremendusSound.play();
+}
+
+function playTadaSound() {
+    tadaSound.play();
+    tadaSound.volume = 0.2;
+}
+
+function playWomanSound(){
+    womanSound.play();
+}
+
+function playManSound(){
+    manSound.play();
 }
 
 function showTime() {
@@ -169,6 +246,7 @@ function newPosTrump() {
     console.log("pos" + randPos);
     document.querySelector("#trump-sprite").addEventListener("animationiteration", newPosTrump);
     document.querySelector("#trump-sprite").addEventListener("animationiteration", loseLife);
+    document.querySelector("#trump-sprite").addEventListener("animationiteration", playTremendusSound);
     document.querySelector("#trump-sprite").addEventListener("click", stopTrump);
 }
 
@@ -280,18 +358,20 @@ function splatTrump() {
 
 function splatWoman() {
     console.log("function splatWoman()");
+    playWomanSound();
     document.querySelector("#t" + p + "s").classList.remove("hidden");
     document.querySelector("#t" + p + "s").classList.add("zoom_in");
     document.querySelector("#t" + p + "s").addEventListener("animationend", restartWoman);
-    setTimeout(restartWoman, 151)
+    setTimeout(restartWoman, 151);
 }
 
 function splatMan() {
     console.log("function splatMan()");
+    playManSound();
     document.querySelector("#t" + p + "s").classList.remove("hidden");
     document.querySelector("#t" + p + "s").classList.add("zoom_in");
     document.querySelector("#t" + p + "s").addEventListener("animationend", restartMan);
-    setTimeout(restartMan, 151)
+    setTimeout(restartMan, 151);
 }
 
 function restartTrump() {
@@ -328,6 +408,9 @@ function gameOver() {
     if (gameHasEnded == false) {
 
         timeLeft = 0;
+
+        playLoseSound1();
+        playLoseSound2();
 
         // remove all classes
         document.querySelector("#trump-sprite").classList.value = "";
@@ -406,6 +489,9 @@ function gameOver() {
         // Adding a "Restart Game" button
         document.querySelector("#homebutton2").addEventListener("click", frontPage);
         document.querySelector("#tryagainbutton").addEventListener("click", start);
+
+        //End background music
+        backMusic.muted = true;
 
         // changing the game running status
         gameHasEnded = true;
@@ -493,6 +579,9 @@ function youWin() {
         document.querySelector("#gamescreen").classList.add("hidden");
         document.querySelector("#winscreen").classList.remove("hidden");
         document.querySelector("#finalScore").textContent = score + " tweets";
+        playElectricitySound();
+        playTadaSound();
+        electricitySound.muted = false;
 
         // Adding a "Restart Game" button
         document.querySelector("#homebutton1").addEventListener("click", frontPage);
@@ -508,6 +597,7 @@ function openInstruction() {
     document.querySelector("#instructionsscreen").classList.remove("hidden");
     document.querySelector("#closeinstructions").classList.remove("hidden");
     document.querySelector("#closeinstructions").addEventListener("click", closeInstruction);
+    document.querySelector("#closeinstructions").addEventListener("click", playClickSound);
 }
 
 function closeInstruction() {
@@ -520,6 +610,7 @@ function closeInstruction() {
 function pauseGame() {
     if (gameIsPaused == false) {
         console.log("Game is Paused");
+        playClickSound();
         document.querySelector("#pause").classList.remove("pause1");
         document.querySelector("#pause").classList.add("pause2");
 
@@ -599,6 +690,7 @@ function pauseGame() {
         gameIsPaused = true;
 
     } else {
+        playClickSound();
         console.log("Game is NOT Paused");
 
         document.querySelector("#pause").classList.remove("pause2");
@@ -687,13 +779,21 @@ function muteSound() {
     if(backMusic.muted == false) {
         backMusic.muted = true;
         tomatoSound.muted = true;
+        tremendusSound.muted = true;
+        womanSound.muted = true;
+        manSound.muted = true;
         document.querySelector("#sound").classList.remove("soundon");
         document.querySelector("#sound").classList.add("soundoff");
+        playClickSound();
     } else {
         backMusic.muted = false;
         tomatoSound.muted = false;
+        tremendusSound.muted = false;
+        womanSound.muted = false;
+        manSound.muted = false;
         document.querySelector("#sound").classList.remove("soundoff");
         document.querySelector("#sound").classList.add("soundon");
+        playClickSound();
     }
 }
 
@@ -706,6 +806,7 @@ function splash() {
     if (image_tracker == 't') {
         image.src = "design/splash.svg";
         image_tracker = "s";
+        playSplatSound();
     } else {
         image.src = "design/tomato.svg";
         image_tracker = "t";

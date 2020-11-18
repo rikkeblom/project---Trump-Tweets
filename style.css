@@ -382,12 +382,13 @@ li {
     position: absolute;
     text-align: center;
     top: 12.8vw;
+    font-size: 1.6vw;
 }
 
 #lose4 {
     position: absolute;
     font-size: 2vw;
-    top: 20vw;
+    top: 21vw;
     left: 11vw;
 }
 
@@ -466,7 +467,6 @@ li {
     left:11.3vw;
     right: 2.3vw;
     top: 7.2vw;
-    line-height:
 }
 
 #objective {
