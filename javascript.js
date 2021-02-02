@@ -142,7 +142,7 @@ function playLoseSound1() {
     console.log("playLoseSound1()");
     loseSound1.play();
     loseSound1.loop = true;
-    loseSound1.volume = 0.2;
+    loseSound1.volume = 0.3;
     loseSound1.muted = false;
 }
 
@@ -159,6 +159,7 @@ clickSound.currentTime = 0;
 
 function playTremendusSound() {
     tremendusSound.play();
+    tremendusSound.volume = 0.7;
 }
 
 function playTadaSound() {
@@ -409,9 +410,6 @@ function gameOver() {
 
         timeLeft = 0;
 
-        playLoseSound1();
-        playLoseSound2();
-
         // remove all classes
         document.querySelector("#trump-sprite").classList.value = "";
         document.querySelector("#man-sprite").classList.value = "";
@@ -490,11 +488,16 @@ function gameOver() {
         document.querySelector("#homebutton2").addEventListener("click", frontPage);
         document.querySelector("#tryagainbutton").addEventListener("click", start);
 
-        //End background music
-        backMusic.muted = true;
+//        //End background music
+//        backMusic.muted = true;
 
         // changing the game running status
         gameHasEnded = true;
+        
+        if (backMusic.muted == false){
+        playLoseSound1();
+        playLoseSound2();
+        }
     }
 }
 
@@ -581,7 +584,6 @@ function youWin() {
         document.querySelector("#finalScore").textContent = score + " tweets";
         playElectricitySound();
         playTadaSound();
-        electricitySound.muted = false;
 
         // Adding a "Restart Game" button
         document.querySelector("#homebutton1").addEventListener("click", frontPage);
@@ -589,6 +591,11 @@ function youWin() {
 
         // changing the game running status
         gameHasEnded = true;
+        
+        if (backMusic.muted == false){
+            playElectricitySound();
+            playTadaSound();
+        }
     }
 }
 
@@ -782,15 +789,28 @@ function muteSound() {
         tremendusSound.muted = true;
         womanSound.muted = true;
         manSound.muted = true;
+        loseSound1.muted = true;
+        loseSound2.muted = true; 
+        splatSound.muted = true;
+        electricitySound.muted = true;
+        tadaSound.muted = true;
+        
         document.querySelector("#sound").classList.remove("soundon");
         document.querySelector("#sound").classList.add("soundoff");
         playClickSound();
+
     } else {
         backMusic.muted = false;
         tomatoSound.muted = false;
         tremendusSound.muted = false;
         womanSound.muted = false;
         manSound.muted = false;
+        loseSound1.muted = false;
+        loseSound2.muted = false; 
+        splatSound.muted = false;
+        electricitySound.muted = false;
+        tadaSound.muted = false;
+        
         document.querySelector("#sound").classList.remove("soundoff");
         document.querySelector("#sound").classList.add("soundon");
         playClickSound();
